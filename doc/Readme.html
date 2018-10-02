@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Readme</title>
+
+    <link rel="stylesheet" href="./css/styles.css">
+    <link rel="stylesheet" href="./css/github-markdown.css">
+    <link rel="stylesheet" href="./css/github-highlight.css">
+</head>
+
+<body id="preview">
+    <h1>
+        <a id="ElementsDemo_0"></a>ElementsDemo</h1>
+    <p>This project was generated with
+        <a href="https://github.com/angular/angular-cli">Angular CLI</a> version 6.2.3.</p>
+    <p>Below you will find some information on how to perform common tasks.</p>
+    <h2>
+        <a id="Table_of_Contents_5"></a>Table of Contents</h2>
+    <ul>
+        <li>
+            <a href="#how-to-install-the-app">How to install the App</a>
+        </li>
+        <li>
+            <a href="#app-structure">App structure</a>
+        </li>
+        <li>
+            <a href="#package-structure">Package structure</a>
+        </li>
+        <li>
+            <a href="#card-types-configuration">Card types configuration</a>
+        </li>
+    </ul>
+    <h2>
+        <a id="how-to-install-the-app"></a>How to install the App</h2>
+    <p>To install the Dependencies App you need the following tools instaled in your machine:</p>
+    <ul>
+        <li>
+            <code>nodejse</code> LTS Version.</li>
+        <li>
+            <code>angular-cli</code> LTS Version.</li>
+        <li>
+            <code>http-server</code> LTS Version.</li>
+    </ul>
+    <p>To run the App you need:</p>
+    <ul>
+        <li>Excute the
+            <code>npm install</code> command</li>
+    </ul>
+    <h2>
+        <a id="app-structure"></a>App structure</h2>
+    <p>For this we used the following tools:</p>
+    <ul>
+        <li>
+            <code>GENOME</code> as CSS Style</li>
+        <li>
+            <code>Angular</code> as a JS framework version 6</li>
+        <li>
+            <code>NPM</code> as a task runner and package manager</li>
+    </ul>
+    <pre><code class="language-json">webcomponent/
+    dist/
+        element-demo
+  doc/
+  e2e/
+  output
+    card1
+    card2
+    card3
+    card4
+    src/
+        app/
+            bz-card/
+                bz-card.component.css
+                bz-card.component.html
+                bz-card.component.spec.ts
+                bz-card.component.ts
+            app.component.css
+            app.component.html
+            app.component.spec.ts
+            app.component.ts
+            app.module.ts
+    assets/
+        css/
+            bizagi-genome-genome.min.css
+        fonts/
+            opensans/
+                opensans-italic.woff2
+                opensans-regular.woff2
+                opensans-semibold.woff2
+            open-sans-italic.ttf
+            open-sans-light.ttf
+            open-sans-semibold.ttf
+        environments
+            environment.prod.ts
+            environment.ts
+packege.json
+runApp.bat
+build.bat
+angular.json
+</code></pre>
+    <h2>
+        <a id="package-structure"></a>Package structure</h2>
+    <p>This is the package json configuration 3/15/2018</p>
+    <pre><code class="language-json">{
+  "<span class="hljs-attribute">name</span>": <span class="hljs-value"><span class="hljs-string">"elements-demo"</span></span>,
+  "<span class="hljs-attribute">version</span>": <span class="hljs-value"><span class="hljs-string">"0.0.0"</span></span>,
+  "<span class="hljs-attribute">scripts</span>": <span class="hljs-value">{
+    "<span class="hljs-attribute">ng</span>": <span class="hljs-value"><span class="hljs-string">"ng"</span></span>,
+    "<span class="hljs-attribute">start</span>": <span class="hljs-value"><span class="hljs-string">"ng serve"</span></span>,
+    "<span class="hljs-attribute">build</span>": <span class="hljs-value"><span class="hljs-string">"ng build"</span></span>,
+    "<span class="hljs-attribute">test</span>": <span class="hljs-value"><span class="hljs-string">"ng test"</span></span>,
+    "<span class="hljs-attribute">lint</span>": <span class="hljs-value"><span class="hljs-string">"ng lint"</span></span>,
+    "<span class="hljs-attribute">e2e</span>": <span class="hljs-value"><span class="hljs-string">"ng e2e"</span>
+  </span>}</span>,
+  "<span class="hljs-attribute">private</span>": <span class="hljs-value"><span class="hljs-literal">true</span></span>,
+  "<span class="hljs-attribute">dependencies</span>": <span class="hljs-value">{
+    "<span class="hljs-attribute">@angular/animations</span>": <span class="hljs-value"><span class="hljs-string">"^6.1.0"</span></span>,
+    "<span class="hljs-attribute">@angular/common</span>": <span class="hljs-value"><span class="hljs-string">"^6.1.0"</span></span>,
+    "<span class="hljs-attribute">@angular/compiler</span>": <span class="hljs-value"><span class="hljs-string">"^6.1.0"</span></span>,
+    "<span class="hljs-attribute">@angular/core</span>": <span class="hljs-value"><span class="hljs-string">"^6.1.0"</span></span>,
+    "<span class="hljs-attribute">@angular/elements</span>": <span class="hljs-value"><span class="hljs-string">"^6.1.9"</span></span>,
+    "<span class="hljs-attribute">@angular/forms</span>": <span class="hljs-value"><span class="hljs-string">"^6.1.0"</span></span>,
+    "<span class="hljs-attribute">@angular/http</span>": <span class="hljs-value"><span class="hljs-string">"^6.1.0"</span></span>,
+    "<span class="hljs-attribute">@angular/platform-browser</span>": <span class="hljs-value"><span class="hljs-string">"^6.1.0"</span></span>,
+    "<span class="hljs-attribute">@angular/platform-browser-dynamic</span>": <span class="hljs-value"><span class="hljs-string">"^6.1.0"</span></span>,
+    "<span class="hljs-attribute">@angular/router</span>": <span class="hljs-value"><span class="hljs-string">"^6.1.0"</span></span>,
+    "<span class="hljs-attribute">core-js</span>": <span class="hljs-value"><span class="hljs-string">"^2.5.4"</span></span>,
+    "<span class="hljs-attribute">rxjs</span>": <span class="hljs-value"><span class="hljs-string">"~6.2.0"</span></span>,
+    "<span class="hljs-attribute">zone.js</span>": <span class="hljs-value"><span class="hljs-string">"~0.8.26"</span></span>,
+    "<span class="hljs-attribute">document-register-element</span>": <span class="hljs-value"><span class="hljs-string">"^1.7.2"</span>
+  </span>}</span>,
+  "<span class="hljs-attribute">devDependencies</span>": <span class="hljs-value">{
+    "<span class="hljs-attribute">@angular-devkit/build-angular</span>": <span class="hljs-value"><span class="hljs-string">"~0.8.0"</span></span>,
+    "<span class="hljs-attribute">@angular/cli</span>": <span class="hljs-value"><span class="hljs-string">"~6.2.3"</span></span>,
+    "<span class="hljs-attribute">@angular/compiler-cli</span>": <span class="hljs-value"><span class="hljs-string">"^6.1.0"</span></span>,
+    "<span class="hljs-attribute">@angular/language-service</span>": <span class="hljs-value"><span class="hljs-string">"^6.1.0"</span></span>,
+    "<span class="hljs-attribute">@types/jasmine</span>": <span class="hljs-value"><span class="hljs-string">"~2.8.8"</span></span>,
+    "<span class="hljs-attribute">@types/jasminewd2</span>": <span class="hljs-value"><span class="hljs-string">"~2.0.3"</span></span>,
+    "<span class="hljs-attribute">@types/node</span>": <span class="hljs-value"><span class="hljs-string">"~8.9.4"</span></span>,
+    "<span class="hljs-attribute">codelyzer</span>": <span class="hljs-value"><span class="hljs-string">"~4.3.0"</span></span>,
+    "<span class="hljs-attribute">concat</span>": <span class="hljs-value"><span class="hljs-string">"^1.0.3"</span></span>,
+    "<span class="hljs-attribute">fs-extra</span>": <span class="hljs-value"><span class="hljs-string">"^7.0.0"</span></span>,
+    "<span class="hljs-attribute">jasmine-core</span>": <span class="hljs-value"><span class="hljs-string">"~2.99.1"</span></span>,
+    "<span class="hljs-attribute">jasmine-spec-reporter</span>": <span class="hljs-value"><span class="hljs-string">"~4.2.1"</span></span>,
+    "<span class="hljs-attribute">karma</span>": <span class="hljs-value"><span class="hljs-string">"~3.0.0"</span></span>,
+    "<span class="hljs-attribute">karma-chrome-launcher</span>": <span class="hljs-value"><span class="hljs-string">"~2.2.0"</span></span>,
+    "<span class="hljs-attribute">karma-coverage-istanbul-reporter</span>": <span class="hljs-value"><span class="hljs-string">"~2.0.1"</span></span>,
+    "<span class="hljs-attribute">karma-jasmine</span>": <span class="hljs-value"><span class="hljs-string">"~1.1.2"</span></span>,
+    "<span class="hljs-attribute">karma-jasmine-html-reporter</span>": <span class="hljs-value"><span class="hljs-string">"^0.2.2"</span></span>,
+    "<span class="hljs-attribute">protractor</span>": <span class="hljs-value"><span class="hljs-string">"~5.4.0"</span></span>,
+    "<span class="hljs-attribute">ts-node</span>": <span class="hljs-value"><span class="hljs-string">"~7.0.0"</span></span>,
+    "<span class="hljs-attribute">tslint</span>": <span class="hljs-value"><span class="hljs-string">"~5.11.0"</span></span>,
+    "<span class="hljs-attribute">typescript</span>": <span class="hljs-value"><span class="hljs-string">"~2.9.2"</span>
+  </span>}
+</span>}
+</code></pre>
+    <h2>
+        <a id="Development_server_135"></a>Development server</h2>
+    <p>Run
+        <code>ng serve</code> for a dev server. Navigate to
+        <code>http://localhost:4200/</code>. The app will automatically reload if you change any of the source files.</p>
+    <h2>
+        <a id="Code_scaffolding_139"></a>Code scaffolding</h2>
+    <p>Run
+        <code>ng generate component component-name</code> to generate a new component. You can also use
+        <code>ng generate directive|pipe|service|class|guard|interface|enum|module</code>.</p>
+    <h2>
+        <a id="Build_143"></a>Build</h2>
+    <p>Run
+        <code>ng build</code> to build the project. The build artifacts will be stored in the
+        <code>dist/</code> directory. Use the
+        <code>--prod</code> flag for a production build.</p>
+    <h2>
+        <a id="Running_unit_tests_147"></a>Running unit tests</h2>
+    <p>Run
+        <code>ng test</code> to execute the unit tests via
+        <a href="https://karma-runner.github.io">Karma</a>.</p>
+    <h2>
+        <a id="Running_endtoend_tests_151"></a>Running end-to-end tests</h2>
+    <p>Run
+        <code>ng e2e</code> to execute the end-to-end tests via
+        <a href="http://www.protractortest.org/">Protractor</a>.</p>
+    <h2>
+        <a id="Further_help_155"></a>Further help</h2>
+    <p>To get more help on the Angular CLI use
+        <code>ng help</code> or go check out the
+        <a href="https://github.com/angular/angular-cli/blob/master/README.md">Angular CLI README</a>.</p>
+    <h1>
+        <a id="card-types-configuration"></a>Card types configuration</h1>
+    <h2>
+        <a id="Card_type_1_163"></a>Card type 1</h2>
+    <p>The type 1 is a simple card which contains only two icons (left and right) and the title, as follow:</p>
+    <p>
+        <img src="./images/card1.JPG" alt="image">
+    </p>
+    <p>Angular</p>
+    <pre><code class="language-angular2html">&lt;custom-bz-card 
+    cardType=&quot;card1&quot; 
+    headerTitle=&quot;Title card 1&quot; 
+    headerIcon=&quot;icon-map-bundle&quot;&gt;
+&lt;/custom-bz-card&gt;
+</code></pre>
+    <p>Javascript</p>
+    <pre><code class="language-javascript"><span class="hljs-keyword">var</span> card = <span class="hljs-built_in">document</span>.querySelector(<span class="hljs-string">'custom-bz-card'</span>);
+card.setAttribute(<span class="hljs-string">'card-type'</span>, <span class="hljs-string">'card1'</span>);
+card.setAttribute(<span class="hljs-string">'header-title'</span>, <span class="hljs-string">'Title card 1'</span>);
+card.setAttribute(<span class="hljs-string">'header-icon'</span>, <span class="hljs-string">'icon-map-bundle'</span>);
+</code></pre>
+    <h2>
+        <a id="Card_type_2_188"></a>Card type 2</h2>
+    <p>The card of type 2 is used to show information in status success (green) with the respective generation date. The card
+        contains the respective icons, the title, the subtitle (status description) and the date, as follow:</p>
+    <p>
+        <img src="./images/card2.JPG" alt="image">
+    </p>
+    <p>Angular</p>
+    <pre><code class="language-angular2html">&lt;custom-bz-card 
+    cardType=&quot;card2&quot; 
+    headerTitle=&quot;Title card 2&quot; 
+    headerSubtitle=&quot;Accepted in&quot; 
+    headerDate=&quot;12/12/17&quot; 
+    headerIcon=&quot;icon-gear&quot;&gt;
+&lt;/custom-bz-card&gt;
+</code></pre>
+    <p>Javascript</p>
+    <pre><code class="language-javascript"><span class="hljs-keyword">var</span> card = <span class="hljs-built_in">document</span>.querySelector(<span class="hljs-string">'custom-bz-card'</span>);
+card.setAttribute(<span class="hljs-string">'card-type'</span>, <span class="hljs-string">'card2'</span>);
+card.setAttribute(<span class="hljs-string">'header-title'</span>, <span class="hljs-string">'Title card 2'</span>);
+card.setAttribute(<span class="hljs-string">'header-subtitle'</span>, <span class="hljs-string">'Accepted in'</span>);
+card.setAttribute(<span class="hljs-string">'header-date'</span>, <span class="hljs-string">'12/12/17'</span>);
+card.setAttribute(<span class="hljs-string">'header-icon'</span>, <span class="hljs-string">'icon-gear'</span>);
+</code></pre>
+    <h2>
+        <a id="Card_type_3_216"></a>Card type 3</h2>
+    <p>The card of type 3 is used to show information in status warning (orange). The card containd the respective icons, the
+        title and the subtitle (status description), as follow:</p>
+    <p>
+        <img src="./images/card3.JPG" alt="image">
+    </p>
+    <p>Angular</p>
+    <pre><code class="language-angular2html">&lt;custom-bz-card 
+    cardType=&quot;card3&quot; 
+    headerTitle=&quot;Title card 3&quot; 
+    headerSubtitle=&quot;Pending&quot; 
+    headerIcon=&quot;icon-gear&quot;&gt;
+&lt;/custom-bz-card&gt;
+</code></pre>
+    <p>Javascript</p>
+    <pre><code class="language-javascript"><span class="hljs-keyword">var</span> card = <span class="hljs-built_in">document</span>.querySelector(<span class="hljs-string">'custom-bz-card'</span>);
+card.setAttribute(<span class="hljs-string">'card-type'</span>, <span class="hljs-string">'card3'</span>);
+card.setAttribute(<span class="hljs-string">'header-title'</span>, <span class="hljs-string">'Title card 3'</span>);
+card.setAttribute(<span class="hljs-string">'header-subtitle'</span>, <span class="hljs-string">'Pending'</span>);
+card.setAttribute(<span class="hljs-string">'header-icon'</span>, <span class="hljs-string">'icon-gear'</span>);
+</code></pre>
+    <h2>
+        <a id="Card_type_4_242"></a>Card type 4</h2>
+    <p>The card of type 4 is more complete, this is used to show a content with his respective image. This card also contains
+        two (2) buttons (cancel and accept) to execute some action.</p>
+    <p>
+        <img src="./images/card4.JPG" alt="image">
+    </p>
+    <p>Angular</p>
+    <pre><code class="language-angular2html">&lt;custom-bz-card 
+    cardType=&quot;card4&quot; 
+    headerTitle=&quot;Title card 4&quot; 
+    contentTitle=&quot;Bizagi&quot; 
+    contentSubtitle=&quot;Bizagi LATAM is a company in Bogotá D.C.&quot;
+    headerIcon=&quot;icon-gear&quot; 
+    firstButtonText=&quot;Cancel&quot; 
+    secondButtonText=&quot;Accept&quot; 
+    urlContentImage=&quot;http://imparcialoaxaca.mx/wp-content/uploads/2018/02/masterhakcs_google_recibe_multa_union_europea.jpg&quot;&gt;
+&lt;/custom-bz-card&gt;
+</code></pre>
+    <p>Javascript</p>
+    <pre><code class="language-javascript"><span class="hljs-keyword">var</span> card = <span class="hljs-built_in">document</span>.querySelector(<span class="hljs-string">'custom-bz-card'</span>);
+card.setAttribute(<span class="hljs-string">'card-type'</span>, <span class="hljs-string">'card4'</span>);
+card.setAttribute(<span class="hljs-string">'header-title'</span>, <span class="hljs-string">'Title card 4'</span>);
+card.setAttribute(<span class="hljs-string">'content-title'</span>, <span class="hljs-string">'Bizagi'</span>);
+card.setAttribute(<span class="hljs-string">'content-subtitle'</span>, <span class="hljs-string">'Bizagi LATAM is a company in Bogotá D.C.'</span>);
+card.setAttribute(<span class="hljs-string">'first-button-text'</span>, <span class="hljs-string">'Cancel'</span>); 
+card.setAttribute(<span class="hljs-string">'second-button-text'</span>, <span class="hljs-string">'Accept'</span>);
+card.setAttribute(<span class="hljs-string">'url-content-image'</span>, <span class="hljs-string">'http://imparcialoaxaca.mx/wp-content/uploads/2018/02/masterhakcs_google_recibe_multa_union_europea.jpg'</span>);
+card.setAttribute(<span class="hljs-string">'header-icon'</span>, <span class="hljs-string">'icon-gear'</span>);
+</code></pre>
+
+</body>
+
+</html>

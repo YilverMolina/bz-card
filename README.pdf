@@ -1,0 +1,599 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"> </script>
+<script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [['$','$'], ['\\(','\\)']]}});</script>
+<script type="text/x-mathjax-config">MathJax.Hub.Config({"HTML-CSS": {"availableFonts":["TeX"],"scale": 150}});</script>
+
+<style>
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+body {
+	font-family: "Segoe WPC", "Segoe UI", "SFUIText-Light", "HelveticaNeue-Light", sans-serif, "Droid Sans Fallback";
+	font-size: 14px;
+	padding: 0 12px;
+	line-height: 22px;
+	word-wrap: break-word;
+}
+
+#code-csp-warning {
+	position: fixed;
+	top: 0;
+	right: 0;
+	color: white;
+	margin: 16px;
+	text-align: center;
+	font-size: 12px;
+	font-family: sans-serif;
+	background-color:#444444;
+	cursor: pointer;
+	padding: 6px;
+	box-shadow: 1px 1px 1px rgba(0,0,0,.25);
+}
+
+#code-csp-warning:hover {
+	text-decoration: none;
+	background-color:#007acc;
+	box-shadow: 2px 2px 2px rgba(0,0,0,.25);
+}
+
+
+body.scrollBeyondLastLine {
+	margin-bottom: calc(100vh - 22px);
+}
+
+body.showEditorSelection .code-line {
+	position: relative;
+}
+
+body.showEditorSelection .code-active-line:before,
+body.showEditorSelection .code-line:hover:before {
+	content: "";
+	display: block;
+	position: absolute;
+	top: 0;
+	left: -12px;
+	height: 100%;
+}
+
+body.showEditorSelection li.code-active-line:before,
+body.showEditorSelection li.code-line:hover:before {
+	left: -30px;
+}
+
+.vscode-light.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.15);
+}
+
+.vscode-light.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.40);
+}
+
+.vscode-dark.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.4);
+}
+
+.vscode-dark.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.60);
+}
+
+.vscode-high-contrast.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 160, 0, 0.7);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 160, 0, 1);
+}
+
+img {
+	max-width: 100%;
+	max-height: 100%;
+}
+
+a {
+	color: #4080D0;
+	text-decoration: none;
+}
+
+a:focus,
+input:focus,
+select:focus,
+textarea:focus {
+	outline: 1px solid -webkit-focus-ring-color;
+	outline-offset: -1px;
+}
+
+hr {
+	border: 0;
+	height: 2px;
+	border-bottom: 2px solid;
+}
+
+h1 {
+	padding-bottom: 0.3em;
+	line-height: 1.2;
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+}
+
+h1, h2, h3 {
+	font-weight: normal;
+}
+
+h1 code,
+h2 code,
+h3 code,
+h4 code,
+h5 code,
+h6 code {
+	font-size: inherit;
+	line-height: auto;
+}
+
+a:hover {
+	color: #4080D0;
+	text-decoration: underline;
+}
+
+table {
+	border-collapse: collapse;
+}
+
+table > thead > tr > th {
+	text-align: left;
+	border-bottom: 1px solid;
+}
+
+table > thead > tr > th,
+table > thead > tr > td,
+table > tbody > tr > th,
+table > tbody > tr > td {
+	padding: 5px 10px;
+}
+
+table > tbody > tr + tr > td {
+	border-top: 1px solid;
+}
+
+blockquote {
+	margin: 0 7px 0 5px;
+	padding: 0 16px 0 10px;
+	border-left: 5px solid;
+}
+
+code {
+	font-family: Menlo, Monaco, Consolas, "Droid Sans Mono", "Courier New", monospace, "Droid Sans Fallback";
+	font-size: 14px;
+	line-height: 19px;
+}
+
+body.wordWrap pre {
+	white-space: pre-wrap;
+}
+
+.mac code {
+	font-size: 12px;
+	line-height: 18px;
+}
+
+pre:not(.hljs),
+pre.hljs code > div {
+	padding: 16px;
+	border-radius: 3px;
+	overflow: auto;
+}
+
+/** Theming */
+
+.vscode-light,
+.vscode-light pre code {
+	color: rgb(30, 30, 30);
+}
+
+.vscode-dark,
+.vscode-dark pre code {
+	color: #DDD;
+}
+
+.vscode-high-contrast,
+.vscode-high-contrast pre code {
+	color: white;
+}
+
+.vscode-light code {
+	color: #A31515;
+}
+
+.vscode-dark code {
+	color: #D7BA7D;
+}
+
+.vscode-light pre:not(.hljs),
+.vscode-light code > div {
+	background-color: rgba(220, 220, 220, 0.4);
+}
+
+.vscode-dark pre:not(.hljs),
+.vscode-dark code > div {
+	background-color: rgba(10, 10, 10, 0.4);
+}
+
+.vscode-high-contrast pre:not(.hljs),
+.vscode-high-contrast code > div {
+	background-color: rgb(0, 0, 0);
+}
+
+.vscode-high-contrast h1 {
+	border-color: rgb(0, 0, 0);
+}
+
+.vscode-light table > thead > tr > th {
+	border-color: rgba(0, 0, 0, 0.69);
+}
+
+.vscode-dark table > thead > tr > th {
+	border-color: rgba(255, 255, 255, 0.69);
+}
+
+.vscode-light h1,
+.vscode-light hr,
+.vscode-light table > tbody > tr + tr > td {
+	border-color: rgba(0, 0, 0, 0.18);
+}
+
+.vscode-dark h1,
+.vscode-dark hr,
+.vscode-dark table > tbody > tr + tr > td {
+	border-color: rgba(255, 255, 255, 0.18);
+}
+
+.vscode-light blockquote,
+.vscode-dark blockquote {
+	background: rgba(127, 127, 127, 0.1);
+	border-color: rgba(0, 122, 204, 0.5);
+}
+
+.vscode-high-contrast blockquote {
+	background: transparent;
+	border-color: #fff;
+}
+</style>
+
+<style>
+/* Tomorrow Theme */
+/* http://jmblog.github.com/color-themes-for-google-code-highlightjs */
+/* Original theme - https://github.com/chriskempson/tomorrow-theme */
+
+/* Tomorrow Comment */
+.hljs-comment,
+.hljs-quote {
+	color: #8e908c;
+}
+
+/* Tomorrow Red */
+.hljs-variable,
+.hljs-template-variable,
+.hljs-tag,
+.hljs-name,
+.hljs-selector-id,
+.hljs-selector-class,
+.hljs-regexp,
+.hljs-deletion {
+	color: #c82829;
+}
+
+/* Tomorrow Orange */
+.hljs-number,
+.hljs-built_in,
+.hljs-builtin-name,
+.hljs-literal,
+.hljs-type,
+.hljs-params,
+.hljs-meta,
+.hljs-link {
+	color: #f5871f;
+}
+
+/* Tomorrow Yellow */
+.hljs-attribute {
+	color: #eab700;
+}
+
+/* Tomorrow Green */
+.hljs-string,
+.hljs-symbol,
+.hljs-bullet,
+.hljs-addition {
+	color: #718c00;
+}
+
+/* Tomorrow Blue */
+.hljs-title,
+.hljs-section {
+	color: #4271ae;
+}
+
+/* Tomorrow Purple */
+.hljs-keyword,
+.hljs-selector-tag {
+	color: #8959a8;
+}
+
+.hljs {
+	display: block;
+	overflow-x: auto;
+	color: #4d4d4c;
+	padding: 0.5em;
+}
+
+.hljs-emphasis {
+	font-style: italic;
+}
+
+.hljs-strong {
+	font-weight: bold;
+}
+</style>
+
+<style>
+/*
+ * Markdown PDF CSS
+ */
+
+pre {
+	background-color: #f8f8f8;
+	border: 1px solid #cccccc;
+	border-radius: 3px;
+	overflow-x: auto;
+	white-space: pre-wrap;
+	overflow-wrap: break-word;
+}
+
+pre:not(.hljs) {
+	padding: 23px;
+	line-height: 19px;
+}
+
+blockquote {
+	background: rgba(127, 127, 127, 0.1);
+	border-color: rgba(0, 122, 204, 0.5);
+}
+
+.emoji {
+	height: 1.4em;
+}
+
+/* for inline code */
+:not(pre):not(.hljs) > code {
+	color: #C9AE75; /* Change the old color so it seems less like an error */
+	font-size: inherit;
+}
+
+</style>
+
+</head>
+<body>
+<h1 id="elementsdemo">ElementsDemo</h1>
+<p>This project was generated with <a href="https://github.com/angular/angular-cli">Angular CLI</a> version 6.2.3.</p>
+<p>Below you will find some information on how to perform common tasks.</p>
+<h2 id="table-of-contents">Table of Contents</h2>
+<ul>
+<li><a href="#how-to-install-the-app">How to install the App</a></li>
+<li><a href="#app-structure">App structure</a></li>
+<li><a href="#package-structure">Package structure</a></li>
+<li><a href="#Card-types-configuration">Card types configuration</a></li>
+</ul>
+<h2 id="how-to-install-the-app">How to install the App</h2>
+<p>To install the Dependencies App you need the following tools instaled in your machine:</p>
+<ul>
+<li><code>nodejse</code> LTS Version.</li>
+<li><code>angular-cli</code> LTS Version.</li>
+<li><code>http-server</code> LTS Version.</li>
+</ul>
+<p>To run the App you need:</p>
+<ul>
+<li>Excute the <code>npm install</code> command</li>
+</ul>
+<h2 id="app-structure">App structure</h2>
+<p>For this we used the following tools:</p>
+<ul>
+<li><code>GENOME</code> as CSS Style</li>
+<li><code>Angular</code> as a JS framework version 6</li>
+<li><code>NPM</code> as a task runner and package manager</li>
+</ul>
+<pre class="hljs"><code><div>webcomponent/
+	dist/
+		element-demo
+  doc/
+  e<span class="hljs-number">2</span>e/
+  output
+    card<span class="hljs-number">1</span>
+    card<span class="hljs-number">2</span>
+    card<span class="hljs-number">3</span>
+    card<span class="hljs-number">4</span>
+	src/
+		app/
+			bz-card/
+				bz-card.component.css
+				bz-card.component.html
+				bz-card.component.spec.ts
+				bz-card.component.ts
+			app.component.css
+			app.component.html
+			app.component.spec.ts
+			app.component.ts
+			app.module.ts
+	assets/
+		css/
+			bizagi-genome-genome.min.css
+		fonts/
+			opensans/
+				opensans-italic.woff<span class="hljs-number">2</span>
+				opensans-regular.woff<span class="hljs-number">2</span>
+				opensans-semibold.woff<span class="hljs-number">2</span>
+			open-sans-italic.ttf
+			open-sans-light.ttf
+			open-sans-semibold.ttf
+		environments
+			environment.prod.ts
+			environment.ts
+packege.json
+runApp.bat
+build.bat
+angular.json
+</div></code></pre>
+<h2 id="package-structure">Package structure</h2>
+<p>This is the package json configuration 3/15/2018</p>
+<pre class="hljs"><code><div>{
+  <span class="hljs-attr">"name"</span>: <span class="hljs-string">"elements-demo"</span>,
+  <span class="hljs-attr">"version"</span>: <span class="hljs-string">"0.0.0"</span>,
+  <span class="hljs-attr">"scripts"</span>: {
+    <span class="hljs-attr">"ng"</span>: <span class="hljs-string">"ng"</span>,
+    <span class="hljs-attr">"start"</span>: <span class="hljs-string">"ng serve"</span>,
+    <span class="hljs-attr">"build"</span>: <span class="hljs-string">"ng build"</span>,
+    <span class="hljs-attr">"test"</span>: <span class="hljs-string">"ng test"</span>,
+    <span class="hljs-attr">"lint"</span>: <span class="hljs-string">"ng lint"</span>,
+    <span class="hljs-attr">"e2e"</span>: <span class="hljs-string">"ng e2e"</span>
+  },
+  <span class="hljs-attr">"private"</span>: <span class="hljs-literal">true</span>,
+  <span class="hljs-attr">"dependencies"</span>: {
+    <span class="hljs-attr">"@angular/animations"</span>: <span class="hljs-string">"^6.1.0"</span>,
+    <span class="hljs-attr">"@angular/common"</span>: <span class="hljs-string">"^6.1.0"</span>,
+    <span class="hljs-attr">"@angular/compiler"</span>: <span class="hljs-string">"^6.1.0"</span>,
+    <span class="hljs-attr">"@angular/core"</span>: <span class="hljs-string">"^6.1.0"</span>,
+    <span class="hljs-attr">"@angular/elements"</span>: <span class="hljs-string">"^6.1.9"</span>,
+    <span class="hljs-attr">"@angular/forms"</span>: <span class="hljs-string">"^6.1.0"</span>,
+    <span class="hljs-attr">"@angular/http"</span>: <span class="hljs-string">"^6.1.0"</span>,
+    <span class="hljs-attr">"@angular/platform-browser"</span>: <span class="hljs-string">"^6.1.0"</span>,
+    <span class="hljs-attr">"@angular/platform-browser-dynamic"</span>: <span class="hljs-string">"^6.1.0"</span>,
+    <span class="hljs-attr">"@angular/router"</span>: <span class="hljs-string">"^6.1.0"</span>,
+    <span class="hljs-attr">"core-js"</span>: <span class="hljs-string">"^2.5.4"</span>,
+    <span class="hljs-attr">"rxjs"</span>: <span class="hljs-string">"~6.2.0"</span>,
+    <span class="hljs-attr">"zone.js"</span>: <span class="hljs-string">"~0.8.26"</span>,
+    <span class="hljs-attr">"document-register-element"</span>: <span class="hljs-string">"^1.7.2"</span>
+  },
+  <span class="hljs-attr">"devDependencies"</span>: {
+    <span class="hljs-attr">"@angular-devkit/build-angular"</span>: <span class="hljs-string">"~0.8.0"</span>,
+    <span class="hljs-attr">"@angular/cli"</span>: <span class="hljs-string">"~6.2.3"</span>,
+    <span class="hljs-attr">"@angular/compiler-cli"</span>: <span class="hljs-string">"^6.1.0"</span>,
+    <span class="hljs-attr">"@angular/language-service"</span>: <span class="hljs-string">"^6.1.0"</span>,
+    <span class="hljs-attr">"@types/jasmine"</span>: <span class="hljs-string">"~2.8.8"</span>,
+    <span class="hljs-attr">"@types/jasminewd2"</span>: <span class="hljs-string">"~2.0.3"</span>,
+    <span class="hljs-attr">"@types/node"</span>: <span class="hljs-string">"~8.9.4"</span>,
+    <span class="hljs-attr">"codelyzer"</span>: <span class="hljs-string">"~4.3.0"</span>,
+    <span class="hljs-attr">"concat"</span>: <span class="hljs-string">"^1.0.3"</span>,
+    <span class="hljs-attr">"fs-extra"</span>: <span class="hljs-string">"^7.0.0"</span>,
+    <span class="hljs-attr">"jasmine-core"</span>: <span class="hljs-string">"~2.99.1"</span>,
+    <span class="hljs-attr">"jasmine-spec-reporter"</span>: <span class="hljs-string">"~4.2.1"</span>,
+    <span class="hljs-attr">"karma"</span>: <span class="hljs-string">"~3.0.0"</span>,
+    <span class="hljs-attr">"karma-chrome-launcher"</span>: <span class="hljs-string">"~2.2.0"</span>,
+    <span class="hljs-attr">"karma-coverage-istanbul-reporter"</span>: <span class="hljs-string">"~2.0.1"</span>,
+    <span class="hljs-attr">"karma-jasmine"</span>: <span class="hljs-string">"~1.1.2"</span>,
+    <span class="hljs-attr">"karma-jasmine-html-reporter"</span>: <span class="hljs-string">"^0.2.2"</span>,
+    <span class="hljs-attr">"protractor"</span>: <span class="hljs-string">"~5.4.0"</span>,
+    <span class="hljs-attr">"ts-node"</span>: <span class="hljs-string">"~7.0.0"</span>,
+    <span class="hljs-attr">"tslint"</span>: <span class="hljs-string">"~5.11.0"</span>,
+    <span class="hljs-attr">"typescript"</span>: <span class="hljs-string">"~2.9.2"</span>
+  }
+}
+</div></code></pre>
+<h2 id="development-server">Development server</h2>
+<p>Run <code>ng serve</code> for a dev server. Navigate to <code>http://localhost:4200/</code>. The app will automatically reload if you change any of the source files.</p>
+<h2 id="code-scaffolding">Code scaffolding</h2>
+<p>Run <code>ng generate component component-name</code> to generate a new component. You can also use <code>ng generate directive|pipe|service|class|guard|interface|enum|module</code>.</p>
+<h2 id="build">Build</h2>
+<p>Run <code>ng build</code> to build the project. The build artifacts will be stored in the <code>dist/</code> directory. Use the <code>--prod</code> flag for a production build.</p>
+<h2 id="running-unit-tests">Running unit tests</h2>
+<p>Run <code>ng test</code> to execute the unit tests via <a href="https://karma-runner.github.io">Karma</a>.</p>
+<h2 id="running-end-to-end-tests">Running end-to-end tests</h2>
+<p>Run <code>ng e2e</code> to execute the end-to-end tests via <a href="http://www.protractortest.org/">Protractor</a>.</p>
+<h2 id="further-help">Further help</h2>
+<p>To get more help on the Angular CLI use <code>ng help</code> or go check out the <a href="https://github.com/angular/angular-cli/blob/master/README.md">Angular CLI README</a>.</p>
+<h1 id="card-types-configuration">Card types configuration</h1>
+<h2 id="card-type-1">Card type 1</h2>
+<p>The type 1 is a simple card which contains only two icons (left and right) and the title, as follow:</p>
+<p><img src="file:///c:/Users/DannyG/Documents/Danny/webcomponent/webcomponent/images/card1.JPG" alt="image"></p>
+<p>Angular</p>
+<pre class="hljs"><code><div>&lt;custom-bz-card 
+	cardType=&quot;card1&quot; 
+	headerTitle=&quot;Title card 1&quot; 
+	headerIcon=&quot;icon-map-bundle&quot;&gt;
+&lt;/custom-bz-card&gt;
+</div></code></pre>
+<p>Javascript</p>
+<pre class="hljs"><code><div><span class="hljs-keyword">var</span> card = <span class="hljs-built_in">document</span>.querySelector(<span class="hljs-string">'custom-bz-card'</span>);
+card.setAttribute(<span class="hljs-string">'card-type'</span>, <span class="hljs-string">'card1'</span>);
+card.setAttribute(<span class="hljs-string">'header-title'</span>, <span class="hljs-string">'Title card 1'</span>);
+card.setAttribute(<span class="hljs-string">'header-icon'</span>, <span class="hljs-string">'icon-map-bundle'</span>);
+</div></code></pre>
+<h2 id="card-type-2">Card type 2</h2>
+<p>The card of type 2 is used to show information in status success (green) with the respective generation date. The card contains the respective icons, the title, the subtitle (status description) and the date, as follow:</p>
+<p><img src="file:///c:/Users/DannyG/Documents/Danny/webcomponent/webcomponent/images/card2.JPG" alt="image"></p>
+<p>Angular</p>
+<pre class="hljs"><code><div>&lt;custom-bz-card 
+	cardType=&quot;card2&quot; 
+	headerTitle=&quot;Title card 2&quot; 
+	headerSubtitle=&quot;Accepted in&quot; 
+	headerDate=&quot;12/12/17&quot; 
+	headerIcon=&quot;icon-gear&quot;&gt;
+&lt;/custom-bz-card&gt;
+</div></code></pre>
+<p>Javascript</p>
+<pre class="hljs"><code><div><span class="hljs-keyword">var</span> card = <span class="hljs-built_in">document</span>.querySelector(<span class="hljs-string">'custom-bz-card'</span>);
+card.setAttribute(<span class="hljs-string">'card-type'</span>, <span class="hljs-string">'card2'</span>);
+card.setAttribute(<span class="hljs-string">'header-title'</span>, <span class="hljs-string">'Title card 2'</span>);
+card.setAttribute(<span class="hljs-string">'header-subtitle'</span>, <span class="hljs-string">'Accepted in'</span>);
+card.setAttribute(<span class="hljs-string">'header-date'</span>, <span class="hljs-string">'12/12/17'</span>);
+card.setAttribute(<span class="hljs-string">'header-icon'</span>, <span class="hljs-string">'icon-gear'</span>);
+</div></code></pre>
+<h2 id="card-type-3">Card type 3</h2>
+<p>The card of type 3 is used to show information in status warning (orange). The card containd the respective icons, the title and the subtitle (status description), as follow:</p>
+<p><img src="file:///c:/Users/DannyG/Documents/Danny/webcomponent/webcomponent/images/card3.JPG" alt="image"></p>
+<p>Angular</p>
+<pre class="hljs"><code><div>&lt;custom-bz-card 
+	cardType=&quot;card3&quot; 
+	headerTitle=&quot;Title card 3&quot; 
+	headerSubtitle=&quot;Pending&quot; 
+	headerIcon=&quot;icon-gear&quot;&gt;
+&lt;/custom-bz-card&gt;
+</div></code></pre>
+<p>Javascript</p>
+<pre class="hljs"><code><div><span class="hljs-keyword">var</span> card = <span class="hljs-built_in">document</span>.querySelector(<span class="hljs-string">'custom-bz-card'</span>);
+card.setAttribute(<span class="hljs-string">'card-type'</span>, <span class="hljs-string">'card3'</span>);
+card.setAttribute(<span class="hljs-string">'header-title'</span>, <span class="hljs-string">'Title card 3'</span>);
+card.setAttribute(<span class="hljs-string">'header-subtitle'</span>, <span class="hljs-string">'Pending'</span>);
+card.setAttribute(<span class="hljs-string">'header-icon'</span>, <span class="hljs-string">'icon-gear'</span>);
+</div></code></pre>
+<h2 id="card-type-4">Card type 4</h2>
+<p>The card of type 4 is more complete, this is used to show a content with his respective image. This card also contains two (2) buttons (cancel and accept) to execute some action.</p>
+<p><img src="file:///c:/Users/DannyG/Documents/Danny/webcomponent/webcomponent/images/card4.JPG" alt="image"></p>
+<p>Angular</p>
+<pre class="hljs"><code><div>&lt;custom-bz-card 
+	cardType=&quot;card4&quot; 
+	headerTitle=&quot;Title card 4&quot; 
+	contentTitle=&quot;Bizagi&quot; 
+	contentSubtitle=&quot;Bizagi LATAM is a company in Bogotá D.C.&quot;
+	headerIcon=&quot;icon-gear&quot; 
+	firstButtonText=&quot;Cancel&quot; 
+	secondButtonText=&quot;Accept&quot; 
+	urlContentImage=&quot;http://imparcialoaxaca.mx/wp-content/uploads/2018/02/masterhakcs_google_recibe_multa_union_europea.jpg&quot;&gt;
+&lt;/custom-bz-card&gt;
+</div></code></pre>
+<p>Javascript</p>
+<pre class="hljs"><code><div><span class="hljs-keyword">var</span> card = <span class="hljs-built_in">document</span>.querySelector(<span class="hljs-string">'custom-bz-card'</span>);
+card.setAttribute(<span class="hljs-string">'card-type'</span>, <span class="hljs-string">'card4'</span>);
+card.setAttribute(<span class="hljs-string">'header-title'</span>, <span class="hljs-string">'Title card 4'</span>);
+card.setAttribute(<span class="hljs-string">'content-title'</span>, <span class="hljs-string">'Bizagi'</span>);
+card.setAttribute(<span class="hljs-string">'content-subtitle'</span>, <span class="hljs-string">'Bizagi LATAM is a company in Bogotá D.C.'</span>);
+card.setAttribute(<span class="hljs-string">'first-button-text'</span>, <span class="hljs-string">'Cancel'</span>); 
+card.setAttribute(<span class="hljs-string">'second-button-text'</span>, <span class="hljs-string">'Accept'</span>);
+card.setAttribute(<span class="hljs-string">'url-content-image'</span>, <span class="hljs-string">'http://imparcialoaxaca.mx/wp-content/uploads/2018/02/masterhakcs_google_recibe_multa_union_europea.jpg'</span>);
+card.setAttribute(<span class="hljs-string">'header-icon'</span>, <span class="hljs-string">'icon-gear'</span>);
+</div></code></pre>
+
+</body>
+</html>

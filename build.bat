@@ -1,0 +1,1 @@
+ng build --prod --output-hashing=none && cd dist/elements-demo && type runtime.js polyfills.js scripts.js main.js > bz-card.js && pausef
