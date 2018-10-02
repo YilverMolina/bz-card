@@ -14,7 +14,7 @@ import { BzCardComponent } from './bz-card/bz-card.component';
     BrowserModule
   ],
   providers: [],
-  bootstrap: [AppComponent],
+  //bootstrap: [AppComponent],
   entryComponents: [
     BzCardComponent
   ]

@@ -46,6 +46,7 @@ describe('BzCardComponent', () => {
     const card = component.debugElement.componentInstance as BzCardComponent;
     const shadowRoot: DocumentFragment = component.debugElement.nativeElement.shadowRoot;
 
+    card.cardType = "card1";
     card.headerIcon = "icon-map-bundle";
     card.headerTitle = 'Title card 1';
     component.detectChanges();
@@ -58,15 +59,15 @@ describe('BzCardComponent', () => {
     const card = component.debugElement.componentInstance as BzCardComponent;
     const shadowRoot: DocumentFragment = component.debugElement.nativeElement.shadowRoot;
 
+    card.cardType = "card2";
     card.headerIcon = "icon-map-bundle";
     card.headerTitle = 'Title card 2';
     card.headerSubtitle = 'Accepted in';
     card.headerDate = '12/09/18';
-    fixture.detectChanges();
+    component.detectChanges();
 
     expect(shadowRoot.querySelector('.bz-card__header-title').textContent).toEqual('Title card 2');
-    expect(shadowRoot.querySelector('.bz-card__header-subtitle').textContent).toEqual('Accepted in');
-    expect(shadowRoot.querySelector('.bz-card__header-subtitle--green').textContent).toEqual('12/09/18');
+    expect(shadowRoot.querySelector('.bz-card__header-subtitle').textContent).toEqual('Accepted in  12/09/18');
   });
 
   it('should load changes - card type 3', () => {
@@ -74,10 +75,11 @@ describe('BzCardComponent', () => {
     const card = component.debugElement.componentInstance as BzCardComponent;
     const shadowRoot: DocumentFragment = component.debugElement.nativeElement.shadowRoot;
 
+    card.cardType = "card3";
     card.headerIcon = "icon-map-bundle";
     card.headerTitle = 'Title card 3';
     card.headerSubtitle = 'Pending';
-    fixture.detectChanges();
+    component.detectChanges();
 
     expect(shadowRoot.querySelector('.bz-card__header-title').textContent).toEqual('Title card 3');
     expect(shadowRoot.querySelector('.bz-card__header-subtitle--orange').textContent).toEqual('Pending');
@@ -88,21 +90,20 @@ describe('BzCardComponent', () => {
     const card = component.debugElement.componentInstance as BzCardComponent;
     const shadowRoot: DocumentFragment = component.debugElement.nativeElement.shadowRoot;
 
+    card.cardType = "card4";
     card.headerIcon = "icon-map-bundle";
     card.headerTitle = 'Title card 4';
     card.contentTitle = 'Bizagi';
     card.contentSubtitle = 'Bizagi is a Company';
-    card.urlContentImage = 'http://imparcialoaxaca.mx/wp-content/uploads/2018/02/masterhakcs_google_recibe_multa_union_europea.jpg';
     card.firstButtonText = 'Cancel';
     card.secondButtonText = 'Accept';
-    fixture.detectChanges();
+    component.detectChanges();
 
     expect(shadowRoot.querySelector('.bz-card__header-title').textContent).toEqual('Title card 4');
     expect(shadowRoot.querySelector('.bz-card__content-title').textContent).toEqual('Bizagi');
     expect(shadowRoot.querySelector('.bz-card__content-subtitle').textContent).toEqual('Bizagi is a Company');
-    expect(shadowRoot.querySelector('.bz-btn--secondary').textContent).toEqual('Cancel');
+    expect(shadowRoot.querySelector('.bz-btn--secondary').textContent).toEqual('Cancel ');
     expect(shadowRoot.querySelector('.bz-btn--primary').textContent).toEqual('Accept');
-    expect(shadowRoot.querySelector('.bz-card__content-image').textContent).toEqual('http://imparcialoaxaca.mx/wp-content/uploads/2018/02/masterhakcs_google_recibe_multa_union_europea.jpg');
   });
 
 });
