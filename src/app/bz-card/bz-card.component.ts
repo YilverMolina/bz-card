@@ -1,7 +1,7 @@
 import { Component, OnInit, Input, ViewEncapsulation, Output, EventEmitter } from '@angular/core';
 
 @Component({
-  selector: 'custom-bz-card',
+  selector: 'bz-card',
   templateUrl: './bz-card.component.html',
   styleUrls: ['./bz-card.component.css'],
   encapsulation: ViewEncapsulation.Native
@@ -38,7 +38,8 @@ export class BzCardComponent implements OnInit {
   @Input()
   public secondButtonText: string;
 
-  constructor() { }
+  constructor() { 
+  }
 
   ngOnInit() {
   }

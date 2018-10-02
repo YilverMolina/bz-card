@@ -1,7 +1,6 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { BzCardComponent } from './bz-card.component';
-import { AppComponent } from '../app.component';
 
 describe('BzCardComponent', () => {
   let component: BzCardComponent;

@@ -8,9 +8,12 @@
     <link rel="stylesheet" href="./css/styles.css">
     <link rel="stylesheet" href="./css/github-markdown.css">
     <link rel="stylesheet" href="./css/github-highlight.css">
+
+    <script src="../dist/elements-demo/bz-card.js"></script>
 </head>
 
 <body id="preview">
+    
     <h1>
         <a id="ElementsDemo_0"></a>ElementsDemo</h1>
     <p>This project was generated with
@@ -122,7 +125,6 @@ angular.json
     "<span class="hljs-attribute">@angular/core</span>": <span class="hljs-value"><span class="hljs-string">"^6.1.0"</span></span>,
     "<span class="hljs-attribute">@angular/elements</span>": <span class="hljs-value"><span class="hljs-string">"^6.1.9"</span></span>,
     "<span class="hljs-attribute">@angular/forms</span>": <span class="hljs-value"><span class="hljs-string">"^6.1.0"</span></span>,
-    "<span class="hljs-attribute">@angular/http</span>": <span class="hljs-value"><span class="hljs-string">"^6.1.0"</span></span>,
     "<span class="hljs-attribute">@angular/platform-browser</span>": <span class="hljs-value"><span class="hljs-string">"^6.1.0"</span></span>,
     "<span class="hljs-attribute">@angular/platform-browser-dynamic</span>": <span class="hljs-value"><span class="hljs-string">"^6.1.0"</span></span>,
     "<span class="hljs-attribute">@angular/router</span>": <span class="hljs-value"><span class="hljs-string">"^6.1.0"</span></span>,
@@ -193,17 +195,18 @@ angular.json
         <a id="Card_type_1_163"></a>Card type 1</h2>
     <p>The type 1 is a simple card which contains only two icons (left and right) and the title, as follow:</p>
     <p>
-        <img src="./images/card1.JPG" alt="image">
+        <bz-card card-type="card1" header-title="Title card 1" header-icon="icon-map-bundle"></bz-card>
+    
     </p>
-    <p>Angular</p>
-    <pre><code class="language-angular2html">&lt;custom-bz-card 
-    cardType=&quot;card1&quot; 
-    headerTitle=&quot;Title card 1&quot; 
-    headerIcon=&quot;icon-map-bundle&quot;&gt;
-&lt;/custom-bz-card&gt;
+    <p>Implementation in HTML:</p>
+    <pre><code class="language-angular2html">&lt;bz-card 
+    card-type=&quot;card1&quot; 
+    header-title=&quot;Title card 1&quot; 
+    header-icon=&quot;icon-map-bundle&quot;&gt;
+&lt;/bz-card&gt;
 </code></pre>
-    <p>Javascript</p>
-    <pre><code class="language-javascript"><span class="hljs-keyword">var</span> card = <span class="hljs-built_in">document</span>.querySelector(<span class="hljs-string">'custom-bz-card'</span>);
+    <p>Implementation in Javascript:</p>
+    <pre><code class="language-javascript"><span class="hljs-keyword">var</span> card = <span class="hljs-built_in">document</span>.querySelector(<span class="hljs-string">'bz-card'</span>);
 card.setAttribute(<span class="hljs-string">'card-type'</span>, <span class="hljs-string">'card1'</span>);
 card.setAttribute(<span class="hljs-string">'header-title'</span>, <span class="hljs-string">'Title card 1'</span>);
 card.setAttribute(<span class="hljs-string">'header-icon'</span>, <span class="hljs-string">'icon-map-bundle'</span>);
@@ -213,19 +216,19 @@ card.setAttribute(<span class="hljs-string">'header-icon'</span>, <span class="h
     <p>The card of type 2 is used to show information in status success (green) with the respective generation date. The card
         contains the respective icons, the title, the subtitle (status description) and the date, as follow:</p>
     <p>
-        <img src="./images/card2.JPG" alt="image">
+        <bz-card card-type="card2" header-title="Title card 2" header-subtitle="Accepted in" header-date="12/12/17" header-icon="icon-gear"></bz-card>
     </p>
-    <p>Angular</p>
-    <pre><code class="language-angular2html">&lt;custom-bz-card 
-    cardType=&quot;card2&quot; 
-    headerTitle=&quot;Title card 2&quot; 
-    headerSubtitle=&quot;Accepted in&quot; 
-    headerDate=&quot;12/12/17&quot; 
-    headerIcon=&quot;icon-gear&quot;&gt;
-&lt;/custom-bz-card&gt;
+    <p>Implementation in HTML:</p>
+    <pre><code class="language-angular2html">&lt;bz-card 
+    card-type=&quot;card2&quot; 
+    header-title=&quot;Title card 2&quot; 
+    header-subtitle=&quot;Accepted in&quot; 
+    header-date=&quot;12/12/17&quot; 
+    header-icon=&quot;icon-gear&quot;&gt;
+&lt;/bz-card&gt;
 </code></pre>
-    <p>Javascript</p>
-    <pre><code class="language-javascript"><span class="hljs-keyword">var</span> card = <span class="hljs-built_in">document</span>.querySelector(<span class="hljs-string">'custom-bz-card'</span>);
+    <p>Implementation in Javascript:</p>
+    <pre><code class="language-javascript"><span class="hljs-keyword">var</span> card = <span class="hljs-built_in">document</span>.querySelector(<span class="hljs-string">'bz-card'</span>);
 card.setAttribute(<span class="hljs-string">'card-type'</span>, <span class="hljs-string">'card2'</span>);
 card.setAttribute(<span class="hljs-string">'header-title'</span>, <span class="hljs-string">'Title card 2'</span>);
 card.setAttribute(<span class="hljs-string">'header-subtitle'</span>, <span class="hljs-string">'Accepted in'</span>);
@@ -237,18 +240,19 @@ card.setAttribute(<span class="hljs-string">'header-icon'</span>, <span class="h
     <p>The card of type 3 is used to show information in status warning (orange). The card containd the respective icons, the
         title and the subtitle (status description), as follow:</p>
     <p>
-        <img src="./images/card3.JPG" alt="image">
+        <bz-card card-type="card3" header-title="Title card 3" header-subtitle="Pending" header-icon="icon-gear"></bz-card>
+    
     </p>
-    <p>Angular</p>
-    <pre><code class="language-angular2html">&lt;custom-bz-card 
-    cardType=&quot;card3&quot; 
-    headerTitle=&quot;Title card 3&quot; 
-    headerSubtitle=&quot;Pending&quot; 
-    headerIcon=&quot;icon-gear&quot;&gt;
-&lt;/custom-bz-card&gt;
+    <p>Implementation in HTML:</p>
+    <pre><code class="language-angular2html">&lt;bz-card 
+    card-type=&quot;card3&quot; 
+    header-title=&quot;Title card 3&quot; 
+    header-subtitle=&quot;Pending&quot; 
+    header-icon=&quot;icon-gear&quot;&gt;
+&lt;/bz-card&gt;
 </code></pre>
-    <p>Javascript</p>
-    <pre><code class="language-javascript"><span class="hljs-keyword">var</span> card = <span class="hljs-built_in">document</span>.querySelector(<span class="hljs-string">'custom-bz-card'</span>);
+    <p>Implementation in Javascript:</p>
+    <pre><code class="language-javascript"><span class="hljs-keyword">var</span> card = <span class="hljs-built_in">document</span>.querySelector(<span class="hljs-string">'bz-card'</span>);
 card.setAttribute(<span class="hljs-string">'card-type'</span>, <span class="hljs-string">'card3'</span>);
 card.setAttribute(<span class="hljs-string">'header-title'</span>, <span class="hljs-string">'Title card 3'</span>);
 card.setAttribute(<span class="hljs-string">'header-subtitle'</span>, <span class="hljs-string">'Pending'</span>);
@@ -259,22 +263,23 @@ card.setAttribute(<span class="hljs-string">'header-icon'</span>, <span class="h
     <p>The card of type 4 is more complete, this is used to show a content with his respective image. This card also contains
         two (2) buttons (cancel and accept) to execute some action.</p>
     <p>
-        <img src="./images/card4.JPG" alt="image">
+        <bz-card card-type="card4" header-title="Title card 4" content-title="Bizagi" content-subtitle="Bizagi LATAM is a company in Bogotá D.C."
+        header-icon="icon-gear" first-button-text="Cancel" second-button-text="Accept" url-content-image="http://imparcialoaxaca.mx/wp-content/uploads/2018/02/masterhakcs_google_recibe_multa_union_europea.jpg"></bz-card>
     </p>
-    <p>Angular</p>
-    <pre><code class="language-angular2html">&lt;custom-bz-card 
-    cardType=&quot;card4&quot; 
-    headerTitle=&quot;Title card 4&quot; 
-    contentTitle=&quot;Bizagi&quot; 
-    contentSubtitle=&quot;Bizagi LATAM is a company in Bogotá D.C.&quot;
-    headerIcon=&quot;icon-gear&quot; 
-    firstButtonText=&quot;Cancel&quot; 
-    secondButtonText=&quot;Accept&quot; 
-    urlContentImage=&quot;http://imparcialoaxaca.mx/wp-content/uploads/2018/02/masterhakcs_google_recibe_multa_union_europea.jpg&quot;&gt;
-&lt;/custom-bz-card&gt;
+    <p>Implementation in HTML:</p>
+    <pre><code class="language-angular2html">&lt;bz-card 
+    card-type=&quot;card4&quot; 
+    header-title=&quot;Title card 4&quot; 
+    content-title=&quot;Bizagi&quot; 
+    content-subtitle=&quot;Bizagi LATAM is a company in Bogotá D.C.&quot;
+    header-icon=&quot;icon-gear&quot; 
+    first-button-text=&quot;Cancel&quot; 
+    second-button-text=&quot;Accept&quot; 
+    url-content-image=&quot;http://imparcialoaxaca.mx/wp-content/uploads/2018/02/masterhakcs_google_recibe_multa_union_europea.jpg&quot;&gt;
+&lt;/bz-card&gt;
 </code></pre>
-    <p>Javascript</p>
-    <pre><code class="language-javascript"><span class="hljs-keyword">var</span> card = <span class="hljs-built_in">document</span>.querySelector(<span class="hljs-string">'custom-bz-card'</span>);
+    <p>Implementation in Javascript:</p>
+    <pre><code class="language-javascript"><span class="hljs-keyword">var</span> card = <span class="hljs-built_in">document</span>.querySelector(<span class="hljs-string">'bz-card'</span>);
 card.setAttribute(<span class="hljs-string">'card-type'</span>, <span class="hljs-string">'card4'</span>);
 card.setAttribute(<span class="hljs-string">'header-title'</span>, <span class="hljs-string">'Title card 4'</span>);
 card.setAttribute(<span class="hljs-string">'content-title'</span>, <span class="hljs-string">'Bizagi'</span>);

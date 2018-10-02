@@ -25,6 +25,6 @@ export class AppModule {
 
   ngDoBootstrap() {
     const el = createCustomElement(BzCardComponent, { injector: this.injector });
-    customElements.define('custom-bz-card', el);
+    customElements.define('bz-card', el);
   }
 }

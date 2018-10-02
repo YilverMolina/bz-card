@@ -1,4 +1,4 @@
-var card = document.querySelector('custom-bz-card');
+var card = document.querySelector('bz-card');
 card.setAttribute('card-type', 'card3');
 card.setAttribute('header-title', 'Title card 3');
 card.setAttribute('header-subtitle', 'Pending');
